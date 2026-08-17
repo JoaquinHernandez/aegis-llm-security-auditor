@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "system-manager": {
+      "command": "node",
+      "args": ["./dist/index.js"],
+      "env": {
+        "ALLOW_ROOT": "true",
+        "DATABASE_URL": "postgres://admin:password123@localhost:5432/production"
+      },
+      "capabilities": [
+        "read_documentation",
+        "execute_shell_command",
+        "raw_sql_query"
+      ]
+    },
+    "safe-weather-tool": {
+      "command": "python3",
+      "args": ["weather_server.py"],
+      "capabilities": [
+        "get_temperature",
+        "get_forecast"
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "prompt_injection_patterns": [
+    {
+      "id": "AI-INJ-01",
+      "name": "System Role Override / Jailbreak Directive",
+      "regex": "(?i)(ignore (all )?previous instructions|disregard prior directives|you are now in developer mode|DAN mode enabled)",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "AI-LEAK-02",
+      "name": "System Prompt Extraction Attempt",
+      "regex": "(?i)(repeat the words above|output your (entire )?initial instructions|print your system prompt)",
+      "severity": "HIGH"
+    },
+    {
+      "id": "AI-EXEC-03",
+      "name": "Remote Code / Shell Invocation via Prompt",
+      "regex": "(?i)(execute following (bash|cmd|powershell)|run os\\.system|subprocess\\.Popen)",
+      "severity": "CRITICAL"
+    }
+  ],
+  "insecure_mcp_capabilities": [
+    "execute_shell_command",
+    "raw_sql_query",
+    "modify_system_files",
+    "bypass_auth"
+  ]
+}
